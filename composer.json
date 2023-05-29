@@ -1,0 +1,18 @@
+{
+    "name": "jecap/challenge",
+    "type": "project",
+    "require": {
+        "symfony/dotenv": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jecap\\Challenge\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pierre EVRARD",
+            "email": "evrardpierrefm@gmail.com"
+        }
+    ]
+}
