@@ -1,23 +1,5 @@
 <?php
 
-// class DatabaseConnexion
-// {
-//     private $host = $_ENV['DB_HOST'];
-//     private $port = $_ENV['DB_PORT'];
-//     private $dbname = $_ENV['DB_NAME'];
-//     private $user = $_ENV['DB_USER'];
-//     private $password = $_ENV['DB_PASSWORD'];
-
-//     public function getPDO()
-//     {
-//         $pdo = new PDO("mysql:host=$this->host;port=$this->port;dbname=$this->dbname", $this->user, $this->password);
-//         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//         return $pdo;
-//     }
-
-// }
-
-
 namespace App\Core;
 
 abstract class SQL
@@ -28,12 +10,11 @@ abstract class SQL
 
     public function __construct()
     {
-        //Connexion à la bdd
+
         //SINGLETON à réaliser ici
-
+        
         try {
-            $this->pdo = new \PDO("pgsql:host=database;dbname=esgi;port=5432", "esgi", "Test1234");
-
+            $this->pdo = new \PDO("pgsql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_NAME'] . ";port=" . $_ENV['DB_PORT'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
         } catch (\Exception $e) {
             die("Erreur SQL : " . $e->getMessage());
         }
